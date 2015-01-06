@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Screen Share Sender</title>
+    <link rel="stylesheet" href="Sender.css" />
+</head>
+<body>
+    <button id="toggleAppStatus">Launch App</button>
+    <button id="shareScreen">shareScreen</button>
+    <select id="shareType">
+        <option value="window">window</option>
+        <option value="application">application</option>
+        <option value="browser">browser</option>
+        <option value="screen">screen</option>
+        <option value="camera">camera</option>
+    </select>
+    <button id="playPause" class="disabled">Pause</button>
+
+    <script src="//openflint.github.io/flint-web-sender-sdk/sender.js" type="text/javascript" ></script>
+    <script src="Sender.js" type="text/javascript"></script>
+</body>
+</html>
