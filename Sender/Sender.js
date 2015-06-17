@@ -2,7 +2,7 @@
 (function() {
     var appid = "~screensharing"; //Unique id of your application, must start with a ~
     var matchstickIPAddress = "192.168.1.13"; //IP address of the matchstick
-    var receiverAppUrl = "http://192.168.1.4/MatchStick-Screen-Sharing/Receiver/Receiver.html"; //Url of the page to load on the receiver
+    var receiverAppUrl = "//offbynone.github.io/MatchStick-Screen-Sharing/Receiver/Receiver.html"; //Url of the page to load on the receiver
     var timeout = -1; //after not communicating with the sender for this many milliseconds return to the default matchstick screen. -1 means don't timeout
     var useInterprocessCommunication = true; //not sure what this means for my application
     var isRunning = false;
@@ -14,8 +14,14 @@
     var playPause = document.getElementById("playPause");
     var shareType = document.getElementById("shareType");
     //navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;    
-    var socket = new WebSocket("ws://192.168.1.13:9431/receiver/~screensharing");
 
+    
+    var peer = senderManager.createPeer();
+    // data connection
+    senderManager.connectReceiverPeer(options);
+    // stream call
+    //senderManager.callReceiverPeer(stream, options);
+    
     senderDaemon.on("appopened", function () {        
         socket.onopen = function() {
             alert("connection has been opened.");
